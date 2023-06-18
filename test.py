@@ -1,43 +1,28 @@
-
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-# open default camera for video capturing
-# vid = cv2.VideoCapture(0)
-
-
-# while(True):
-#     # return the video frame
-#     _, frame = vid.read()
-#     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-#     cv2.imshow('display', gray)
-
-#     width, len = gray.shape
-#     avg_intensity = np.sum(gray)/(width*len)
-    
-#     intensity.append(avg_intensity)
-#     if cv2.waitKey(1)==27:
-#         break
-# vid.release()
-
-image = cv2.imread('spectrum.png', 1)
-intensity = []
 # before the reaction
-# 1. run 1 pass of the program, get the 100% intensity of every column of pixels (baseline)
-# 2. store the result somewhere
+# 1. get a baseline picture of the wavelength before the reaction
 
 # after the reaction
-# 1. we get 2 inputs: the 100% intensity values, the range of wavelengths we're looking at provided by the user
-# 2. read the image in color mode
-# 3. get the most intense pixel from each column
-# 4. compare with the baseline to get the intensity percentage
-# 5. output the graph of intensity percentage in the range of wavelength given
+# 1. get the picture of the wavelength after the reaction
+# 2. read before and after pictures as grayscale
+# 1. get the most intense pixel of every pixel column of the images
+# 4. compare the captured intensity with the baseline as a percentage
+# 5. output the plot of intensity percentage
+# 6. we intepret the corresponding part of the plot based on the wavelength range given by the user
 
+intensity = []
 
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+baseline_image = cv2.imread('baseline.jpg', 0)
+baseline_intensity = np.amax(baseline_image, axis=0)
 
+actual_image = cv2.imread('actual.jpg', 0)
+captured_intensity = np.amax(actual_image, axis=0)
 
-cv2.destroyAllWindows()
+for i in range(len(baseline_intensity)):
+  intensity.append(captured_intensity[i]/baseline_intensity[i])
+
 plt.plot(intensity)
 plt.show()
