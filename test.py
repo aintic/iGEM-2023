@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # after the reaction
 # 1. get the picture of the wavelength after the reaction
 # 2. read before and after pictures as grayscale
-# 1. get the most intense pixel of every pixel column of the images
+# 3. get the most intense pixel of every pixel column of the images
 # 4. compare the captured intensity with the baseline as a percentage
 # 5. output the plot of intensity percentage
 # 6. we intepret the corresponding part of the plot based on the wavelength range given by the user
