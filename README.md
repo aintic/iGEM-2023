@@ -6,9 +6,7 @@ Hardware setup:
 
 Software setup:
 1. Install Arudino IDE 2.2.1 (https://www.arduino.cc/en/software)
-2. Install Adafruit MLX90614 library
-    a. In Arduino IDE, go to Sketch->Include Libraries->Manage Libraries
-    b. Search and install Adafruit MLX90614 library
+2. Install Adafruit MLX90614 library  a. In Arduino IDE, go to Sketch->Include Libraries->Manage Libraries  b. Search and install Adafruit MLX90614 library
 3. Open IRSensorReader.ino (polling read) or IRSensorReader_UserInput.ino sketch
 4. Follow the ESP32's tutorial to install drivers and select the correct Comms port
 5. Upload code to ESP32
