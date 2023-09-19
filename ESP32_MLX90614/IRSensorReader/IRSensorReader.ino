@@ -1,5 +1,5 @@
 // --------------------------------------
-// IR_Sensor_Reader
+// IR Sensor Reader
 // --------------------------------------
 
 #include <Adafruit_MLX90614.h>
@@ -16,7 +16,7 @@ void setup() {
   while (!Serial);
 
   Serial.println("IR Sensor MLX90614 test");
-  
+
   if (!mlx.begin()) {
     Serial.println("Error connecting to MLX sensor. Check wiring.");
     while (1);
@@ -29,12 +29,12 @@ void setup() {
 void loop() {
   ambientTempC = mlx.readAmbientTempC();
   objectTempC = mlx.readObjectTempC();
-  
+
   Serial.print("Ambient: ");
   Serial.print(ambientTempC);
   Serial.print("°C\tObject:");
   Serial.print(objectTempC);
   Serial.println("°C");
-  
+
   delay(500);
 }
